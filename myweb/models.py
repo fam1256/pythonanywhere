@@ -1,16 +1,21 @@
 from django.db import models
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+class Food(models.Model):
+    Name_text = models.CharField(max_length=200,blank=True)
+    Img = models.CharField(max_length=200,blank=True)
+    Raw_text = models.CharField(max_length=999999,blank=True)
+    How_text = models.CharField(max_length=999999,blank=True)
+    Calorie_text = models.CharField(max_length=200,blank=True)
 
     def __str__(self):
-        return f'{self.question_text}'
+        return f'{self.Name_text} - {self.Img} - {self.Raw_text} - {self.How_text} - {self.Calorie_text} '
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+
+class Exercise(models.Model):
+    Exercise_name = models.CharField(max_length=200,blank=True)
+    Exercise_text = models.CharField(max_length=999999,blank=True)
+    Exercise_time = models.CharField(max_length=200,blank=True)
+    Exercise_calorie = models.CharField(max_length=200,blank=True)
 
     def __str__(self):
-        return f'{self.question.question_text} - {self.choice_text} - {self.votes}'
+        return f'{self.Exercise_name} - {self.Exercise_text} - {self.Exercise_time} - {self.Exercise_calorie} '
